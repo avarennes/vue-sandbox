@@ -20,7 +20,11 @@
         <div id="writing">
             <h3>Type here:</h3>
             <textarea v-model="message"></textarea>
-            <p>{{ message }}</p>
+            <!-- v-if directive: render element or not (mount / unmount) -->
+            <p v-if="message">Message: {{ message }}</p>
+            <p v-else>No message</p>
+            <!-- v-show directive: render element with style attr "display:none;" when condition is false -->
+            <p v-show="message">Message: {{ message }}</p>
         </div>
         <div id="checkboxes">
             <div v-for="option of options" v-bind:key="option">
