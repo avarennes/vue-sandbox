@@ -16,7 +16,22 @@
             <li>{{ item }}</li>
         </ul>
     </div>
+    <div id="vmodel">
+        <div id="writing">
+            <h3>Type here:</h3>
+            <textarea v-model="message"></textarea>
+            <p>{{ message }}</p>
+        </div>
+        <div id="checkboxes">
+            <div v-for="option of options" v-bind:key="option">
+                <input type="checkbox" v-bind:value="option.value" v-model="checkedNames" />
+                {{ option.value }}
+            </div>
+            <div>{{ checkedNames }}</div>
+        </div>
+    </div>
     <script src="./helloworld.js" type="text/javascript"></script>
     <script src="./list.js" type="text/javascript"></script>
+    <script src="./v-model.js" type="text/javascript"></script>
 </body>
 </html>
