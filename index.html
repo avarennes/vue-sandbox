@@ -11,11 +11,13 @@
     <div id="helloworld">
         {{ message }}
     </div>
+
     <div id="list">
         <ul v-for="item of list">
             <li>{{ item }}</li>
         </ul>
     </div>
+
     <div id="vmodel">
         <div id="writing">
             <h3>Type here:</h3>
@@ -34,8 +36,29 @@
             <div>{{ checkedNames }}</div>
         </div>
     </div>
+
+    <div id="directivesexercise">
+        <div>
+            <h3>Calculator</h3>
+            <span v-for="index of calValues.length" :key="'calValue' + index">
+                <input type="number" placeholder="0" min="0" v-model="calValues[index - 1]" />
+                <span v-if="index !== calValues.length"> + </span>
+            </span>
+            = {{ calValues.reduce((acc, curr) => acc + +curr, 0) }}
+        </div>
+        <div>
+            <h3>Selector</h3>
+            <select @change="handleChange($event)">
+                <option value="" selected disabled>Choose option</option>
+                <option v-for="option of options" :key="option.value" :value="option.value">{{ option.value }}</option>
+            </select>
+            <span v-if="message">{{ message }}</span>
+        </div>
+    </div>
+
     <script src="./helloworld.js" type="text/javascript"></script>
     <script src="./list.js" type="text/javascript"></script>
     <script src="./v-model.js" type="text/javascript"></script>
+    <script src="./directives-exercise.js" type="text/javascript"></script>
 </body>
 </html>
